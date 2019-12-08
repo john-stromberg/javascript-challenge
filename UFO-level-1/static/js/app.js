@@ -22,9 +22,9 @@ button.on("click", function(){
     d3.event.preventDefault();
     //console log to test button function
     console.log("You have clicked the filter button");
-    // select the input element and get the raw HTML node
+    //select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
-    // get the value property of the input element
+    //get the value property of the input element
     var inputValue = inputElement.property("value");
     console.log(inputValue);
     //create filter to filter on date data based on input value
