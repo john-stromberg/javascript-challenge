@@ -5,11 +5,12 @@ var tbody = d3.select("tbody");
 
 console.log(data);
 
-// loop and through and console log each UFO event
+// loop through and console log each UFO event
 data.forEach(function(ufoEvent) {
     console.log(ufoEvent);
 });
 
+// append table
 data.forEach(function(ufoEvent) {
     console.log(ufoEvent);
     var row = tbody.append("tr");
@@ -20,23 +21,23 @@ data.forEach(function(ufoEvent) {
     });
   });
  
-
-
-
-
-
-
 // select the button
 var button = d3.select("#button");
 
 button.on("click", function(){
-    var inputElement = d3.select("#button");
+    d3.select(".summary").html("");
+
+    var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
 
-    console.log(inputValue);
-    console.log(data);
-
-    var filteredData = data.filter(data => data.datetime === inputValue);
+    var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
     
-    console.log(filteredData);
+    filteredData.forEach((filteredDate) => {
+        var row = tbody.append("tr");
+        Object.entries(filteredDate).forEach(([key,value]) => {
+            var cell = tbody.append("td");
+            cell.text(value);
+        });
+    });  
 });
+
