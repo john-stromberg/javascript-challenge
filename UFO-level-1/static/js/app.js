@@ -1,9 +1,10 @@
-// from data.js
 var tableData = data;
 // select the table body
 var tbody = d3.select("tbody");
 
 console.log(data);
+
+
 
 // loop through and console log each UFO event
 data.forEach(function(ufoEvent) {
@@ -22,16 +23,21 @@ data.forEach(function(ufoEvent) {
   });
  
 // select the button
-var button = d3.select("#button");
+var button = d3.select("#filter-btn-date");
 
+// button filter function
 button.on("click", function(){
-    d3.select(".summary").html("");
-
+    tbody.html("");
+    d3.event.preventDefault();
+    console.log("You have clicked the filter button");
+    
     var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
+    console.log(inputValue);
 
-    var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
-    
+    var filteredData = data.filter(data => data.datetime === inputValue);
+    console.log(filteredData);
+
     filteredData.forEach((filteredDate) => {
         var row = tbody.append("tr");
         Object.entries(filteredDate).forEach(([key,value]) => {
@@ -40,4 +46,3 @@ button.on("click", function(){
         });
     });  
 });
-
