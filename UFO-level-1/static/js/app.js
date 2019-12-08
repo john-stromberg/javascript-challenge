@@ -1,17 +1,8 @@
 var tableData = data;
-// select the table body
-var tbody = d3.select("tbody");
-
 console.log(data);
-
-
-
-// loop through and console log each UFO event
-data.forEach(function(ufoEvent) {
-    console.log(ufoEvent);
-});
-
-// append table
+//select the table body 
+var tbody = d3.select("tbody");
+//create and append table body with UFO event data
 data.forEach(function(ufoEvent) {
     console.log(ufoEvent);
     var row = tbody.append("tr");
@@ -22,22 +13,24 @@ data.forEach(function(ufoEvent) {
     });
   });
  
-// select the button
+//select the button
 var button = d3.select("#filter-btn-date");
-
-// button filter function
+//button filter function
 button.on("click", function(){
+    //clear table 
     tbody.html("");
     d3.event.preventDefault();
+    //console log to test button function
     console.log("You have clicked the filter button");
-    
+    // select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
+    // get the value property of the input element
     var inputValue = inputElement.property("value");
     console.log(inputValue);
-
+    //create filter to filter on date data based on input value
     var filteredData = data.filter(data => data.datetime === inputValue);
     console.log(filteredData);
-
+    //append filtered data to table body 
     filteredData.forEach((filteredDate) => {
         var row = tbody.append("tr");
         Object.entries(filteredDate).forEach(([key,value]) => {
