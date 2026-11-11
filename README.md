@@ -1,3 +1,8 @@
+> **Moved:** This project is maintained in [data-analytics-bootcamp-2019/projects/javascript-challenge](https://github.com/john-stromberg/data-analytics-bootcamp-2019/tree/main/projects/javascript-challenge).
+> This repository is retained as a historical snapshot.
+
+---
+
 # JavaScript and DOM Manipulation
 
 ## Background
